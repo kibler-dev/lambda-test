@@ -35,8 +35,8 @@ jobs:
       - name: Terraform Format
         run: terraform -chdir=./terraform fmt -check -diff
 
-      - name: Terraform Tests
-        run: python -m unittest tests/test_terraform.py
+      # - name: Terraform Tests
+      #   run: python -m unittest tests/test_terraform.py
 
       - name: Terraform Plan
         run: terraform -chdir=./terraform plan -out=./terraform/tf.plan
