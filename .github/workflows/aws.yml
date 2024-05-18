@@ -31,9 +31,6 @@ jobs:
 
       - name: Terraform Init
         run: terraform -chdir=./terraform init
-        env:
-          TF_CLOUD_ORGANIZATION: TF_CLOUD_ORGANIZATION
-          TF_WORKSPACE: TF_CLOUD_WORKSPACE
 
       - name: Terraform Format
         run: terraform -chdir=./terraform fmt -check -diff
