@@ -40,12 +40,7 @@ jobs:
       #   run: python -m unittest tests/test_terraform.py
 
       - name: Terraform Plan
-        run: terraform -chdir=./terraform plan -out=./terraform/tf.plan
-
-      - uses: actions/upload-artifact@master
-        with:
-          name: tf-plan
-          path: ./terraform/tf.plan
+        run: terraform -chdir=./terraform plan
 
   terraform-apply:
     name: Terraform Apply
@@ -54,11 +49,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - uses: actions/download-artifact@master
-        with:
-          name: tf-plan
-          path: ./terraform/tf.plan
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
